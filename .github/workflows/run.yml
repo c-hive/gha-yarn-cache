@@ -1,4 +1,4 @@
-name: CI
+name: Run
 
 on: [push]
 
@@ -6,7 +6,7 @@ env:
   node_version: "12.x"
 
 jobs:
-  lint:
+  run-action:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -15,8 +15,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ env.node_version }}
-    # - uses: c-hive/gha-npm-cache@v1
     - name: Install JS dependencies
       run: yarn install
-    - name: Lint
-      run: yarn lint
+    - name: Build
+      run: yarn build
+    - name: Run action
+      uses: ./
