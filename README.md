@@ -47,6 +47,28 @@ jobs:
       run: yarn test
 ```
 
+### Solution comparison
+
+[Native](https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/examples.md#node---yarn)
+```yml
+- name: Get yarn cache directory path
+  id: yarn-cache-dir-path
+  run: echo "::set-output name=dir::$(yarn cache dir)"
+
+- uses: actions/cache@v1
+  id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+  with:
+    path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+    key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+    restore-keys: |
+      ${{ runner.os }}-yarn-
+```
+
+`gha-yarn-cache`
+```yml
+- uses: c-hive/gha-yarn-cache@v1
+```
+
 ## Conventions
 
 This project follows [C-Hive guides](https://github.com/c-hive/guides) for code style, way of working and other development concerns.
