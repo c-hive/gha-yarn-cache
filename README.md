@@ -6,7 +6,7 @@ Status and support
 
 - &#x2714; stable
 - &#x2714; supported
-- &#x2714; ongoing development
+- &#x2716; no ongoing development
 
 [![CI](/../../workflows/CI/badge.svg?branch=master)](/../../actions)
 
