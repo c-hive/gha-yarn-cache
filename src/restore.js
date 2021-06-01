@@ -24,7 +24,7 @@ async function yarnCache() {
       output += data.toString();
     },
   };
-  await exec.exec("yarn cache dir", [], options);
+  await exec.exec("yarn config get cacheFolder", [], options);
 
   return output.trim();
 }
