@@ -24,7 +24,16 @@ async function yarnCache() {
       output += data.toString();
     },
   };
+
+  // Default to the Yarn v2 command for getting the cache folder
+  // If the result is not "undefined" we are on Yarn v2
   await exec.exec("yarn config get cacheFolder", [], options);
+
+  if (output.trim() === "undefined") {
+    // Yarn v2 didn't work, trying the equivalent Yarn v1 command
+    output = "";
+    await exec.exec("yarn cache dir", [], options);
+  }
 
   return output.trim();
 }
