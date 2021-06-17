@@ -22,7 +22,7 @@ GitHub Action caches improve build times and reduce network dependencies. Howeve
 
 Add this step before `yarn install`:
 ```yml
-uses: c-hive/gha-yarn-cache@v1
+uses: c-hive/gha-yarn-cache@v2
 ```
 
 For example:
@@ -39,7 +39,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - uses: c-hive/gha-yarn-cache@v1
+    - uses: c-hive/gha-yarn-cache@v2
 
     - name: Install JS dependencies
       run: yarn install
@@ -66,7 +66,7 @@ jobs:
 
 `gha-yarn-cache`
 ```yml
-- uses: c-hive/gha-yarn-cache@v1
+- uses: c-hive/gha-yarn-cache@v2
 ```
 
 ## Conventions
