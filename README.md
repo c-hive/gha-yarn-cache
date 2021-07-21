@@ -47,6 +47,34 @@ jobs:
       run: yarn test
 ```
 
+It is also possible to define the target directory by:  
+`.github/workflows/ci.yml`
+```yml
+name: CI
+
+on: [push]
+
+defaults:
+  run:
+    working-directory: server
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - uses: c-hive/gha-yarn-cache@v2
+      with: 
+        directory: server
+
+    - name: Install JS dependencies
+      run: yarn install
+    - name: Test
+    - name: Test
+      run: yarn test
+```
+
 ### Solution comparison
 
 [Native](https://github.com/actions/cache/blob/9ab95382c899bf0953a0c6c1374373fc40456ffe/examples.md#node---yarn)
