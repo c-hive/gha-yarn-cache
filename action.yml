@@ -4,6 +4,7 @@ description: '1-liner yarn install cache for GitHub Actions'
 inputs:
   directory:
     description: 'Directory containing yarn.lock'
+    required: false
     default: './'
 runs:
   using: 'node12'
