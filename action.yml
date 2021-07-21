@@ -4,7 +4,7 @@ description: '1-liner yarn install cache for GitHub Actions'
 inputs:
   directory:
     description: 'Directory containing yarn.lock'
-    default: ''
+    default: './'
 runs:
   using: 'node12'
   main: 'dist/restore/index.js'
