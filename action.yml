@@ -5,7 +5,7 @@ inputs:
   directory:
     description: 'Directory containing yarn.lock'
     required: false
-    default: './'
+    default: '.'
 runs:
   using: 'node12'
   main: 'dist/restore/index.js'
