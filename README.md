@@ -40,37 +40,11 @@ jobs:
     - uses: actions/checkout@v1
 
     - uses: c-hive/gha-yarn-cache@v2
+      # with:
+        # directory: server # Optional, speficy the folder of yarn.lock if not in the root directory
 
     - name: Install JS dependencies
       run: yarn install
-    - name: Test
-      run: yarn test
-```
-
-It is also possible to define the target directory by:  
-`.github/workflows/ci.yml`
-```yml
-name: CI
-
-on: [push]
-
-defaults:
-  run:
-    working-directory: server
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-
-    - uses: c-hive/gha-yarn-cache@v2
-      with: 
-        directory: server
-
-    - name: Install JS dependencies
-      run: yarn install
-    - name: Test
     - name: Test
       run: yarn test
 ```
