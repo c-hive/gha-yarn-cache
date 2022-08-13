@@ -1,3 +1,17 @@
+## Deprecated
+
+This functionality is now part of [`actions/setup-node`](https://github.com/actions/setup-node):
+
+```yml
+- name: Setup Node.js
+  uses: actions/setup-node@v3
+  with:
+    node-version: '16'
+    cache: 'yarn'
+```
+
+---
+
 # gha-yarn-cache
 
 #### 1-liner yarn install cache for GitHub Actions
